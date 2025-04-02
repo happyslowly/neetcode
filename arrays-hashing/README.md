@@ -184,8 +184,8 @@ def groupAnagrams(strs):
     return list(anagram_groups.values())
 ```
 
-**Time Complexity**: O(n _ k) where k is the maximum length of any string
-**Space Complexity**: O(n _ k)
+**Time Complexity**: $O(n \times k)$ where k is the maximum length of any string
+**Space Complexity**: $O(n \times k)$
 
 ## Pattern: Frequency Counting
 
