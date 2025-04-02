@@ -1,13 +1,12 @@
 # @leet start
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        d = {}
+        seen = {}
         for i, n in enumerate(nums):
-            if target - n in d:
-                return [d[target - n], i]
-            d[n] = i
+            if target - n in seen:
+                return [seen[target - n], i]
+            seen[n] = i
         return []
 
 
 # @leet end
-

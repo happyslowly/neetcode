@@ -1,13 +1,12 @@
 # @leet start
 class Solution:
     def containsDuplicate(self, nums: list[int]) -> bool:
-        s = set()
+        seen = set()
         for n in nums:
-            if n in s:
+            if n in seen:
                 return True
-            s.add(n)
+            seen.add(n)
         return False
 
 
 # @leet end
-

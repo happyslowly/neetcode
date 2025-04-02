@@ -1,22 +1,21 @@
 # @leet start
-import heapq
 from collections import Counter
 
 
 class Solution:
     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         counter = Counter(nums)
-        heap = []
+        buckets = [[] for _ in range(len(nums) + 1)]
         for n, c in counter.items():
-            heapq.heappush(heap, (c, n))
-            if len(heap) > k:
-                heapq.heappop(heap)
+            buckets[c].append(n)
 
-        results = []
-        for c, n in heap:
-            results.append(n)
-        return results
+        result = []
+        for i in range(len(buckets) - 1, 0, -1):
+            result.extend(buckets[i][:k])
+            k -= len(buckets[i])
+            if k <= 0:
+                break
+        return result
 
 
 # @leet end
-
