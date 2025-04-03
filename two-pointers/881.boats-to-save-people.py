@@ -7,14 +7,9 @@ class Solution:
         while l <= r:
             if people[l] + people[r] <= limit:
                 l += 1
-                r -= 1
-            elif people[l] < people[r]:
-                r -= 1
-            else:
-                l += 1
+            r -= 1
             count += 1
         return count
 
 
 # @leet end
-

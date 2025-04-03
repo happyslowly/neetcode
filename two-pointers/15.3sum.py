@@ -8,9 +8,10 @@ class Solution:
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
             l, r = i + 1, len(nums) - 1
-            target = -nums[i]
+
             while l < r:
-                if nums[l] + nums[r] == target:
+                total = nums[i] + nums[l] + nums[r]
+                if total == 0:
                     results.append([nums[i], nums[l], nums[r]])
                     while l < r and nums[l + 1] == nums[l]:
                         l += 1
@@ -18,7 +19,7 @@ class Solution:
                         r -= 1
                     l += 1
                     r -= 1
-                elif nums[l] + nums[r] > target:
+                elif total > 0:
                     r -= 1
                 else:
                     l += 1
@@ -26,4 +27,3 @@ class Solution:
 
 
 # @leet end
-

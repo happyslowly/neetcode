@@ -9,11 +9,11 @@ class Solution:
             for b in range(a + 1, len(nums) - 2):
                 if b > a + 1 and nums[b - 1] == nums[b]:
                     continue
-                s = target - nums[a] - nums[b]
                 c = b + 1
                 d = len(nums) - 1
                 while c < d:
-                    if nums[c] + nums[d] == s:
+                    total = nums[a] + nums[b] + nums[c] + nums[d]
+                    if total == target:
                         results.append([nums[a], nums[b], nums[c], nums[d]])
                         while c < d and nums[c + 1] == nums[c]:
                             c += 1
@@ -21,7 +21,7 @@ class Solution:
                             d -= 1
                         c += 1
                         d -= 1
-                    elif nums[c] + nums[d] > s:
+                    elif total > target:
                         d -= 1
                     else:
                         c += 1
@@ -29,4 +29,3 @@ class Solution:
 
 
 # @leet end
-
